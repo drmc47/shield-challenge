@@ -1,6 +1,5 @@
 import { Request, Response, NextFunction } from "express";
 import { listWallets, addWallet, getWallet, modifyWallet, removeWallet } from "./wallet.service";
-// import { CustomError } from "../../errors/CustomError";
 import { StatusCodes } from "http-status-codes";
 
 export const getWallets = async (req: Request, res: Response, next: NextFunction) => {

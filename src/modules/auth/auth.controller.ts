@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { loginUser, registerUser } from "./auth.service";
 import { CustomError } from "../../errors/CustomError";
+import { StatusCodes } from "http-status-codes";
 
 export const signin = async (req: Request, res: Response, next: NextFunction) => {
   try {
@@ -17,7 +18,7 @@ export const signup = async (req: Request, res: Response, next: NextFunction) =>
     const { email, password } = req.body;
 
     if (!email || !password) {
-      throw new CustomError("Email and password are required", 400);
+      throw new CustomError("Email and password are required", StatusCodes.BAD_REQUEST);
     }
     const user = await registerUser(email, password);
     res.json(user);
