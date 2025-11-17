@@ -38,6 +38,9 @@ Create a .env file using .env.example as a reference:
 DATABASE_URL="postgresql://user:password@localhost:5432/dbname?schema=public"
 JWT_SECRET="changeme123"
 PORT=3000
+POSTGRES_USER=testuser
+POSTGRES_PASSWORD=testuser
+POSTGRES_DB=challenge_db
 ```
 
 🐳 Running with Docker (recommended)
