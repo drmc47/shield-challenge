@@ -1,0 +1,259 @@
+{
+	"info": {
+		"_postman_id": "1e80b87d-08e3-41b6-a67b-4435343d58c3",
+		"name": "Shield Challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25189257"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Sign Up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" : \"user@mail.com\",\n    \"password\" : \"testPassword\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign In",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" : \"test@mail.com\",\n    \"password\" : \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/signin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign Out",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhMDkwYWY2My00N2VhLTQ3ZjQtYjM4MS1mNzMzOTI2MzQyNGYiLCJpYXQiOjE3NjMzMjYxNTQsImV4cCI6MTc2MzQxMjU1NH0.q5fjOVrf7eOKxs0H7yxenCZdirk3-9A7YEuH-bbkrzg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/signout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"signout"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Sign up, login and logout"
+		},
+		{
+			"name": "Wallets",
+			"item": [
+				{
+					"name": "Get wallets",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhMDkwYWY2My00N2VhLTQ3ZjQtYjM4MS1mNzMzOTI2MzQyNGYiLCJpYXQiOjE3NjMzMjYxNTQsImV4cCI6MTc2MzQxMjU1NH0.q5fjOVrf7eOKxs0H7yxenCZdirk3-9A7YEuH-bbkrzg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/wallets/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"wallets",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get wallet by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhMDkwYWY2My00N2VhLTQ3ZjQtYjM4MS1mNzMzOTI2MzQyNGYiLCJpYXQiOjE3NjMzMjYxNTQsImV4cCI6MTc2MzQxMjU1NH0.q5fjOVrf7eOKxs0H7yxenCZdirk3-9A7YEuH-bbkrzg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/wallets/{id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"wallets",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete wallet by id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhMDkwYWY2My00N2VhLTQ3ZjQtYjM4MS1mNzMzOTI2MzQyNGYiLCJpYXQiOjE3NjMzMjYxNTQsImV4cCI6MTc2MzQxMjU1NH0.q5fjOVrf7eOKxs0H7yxenCZdirk3-9A7YEuH-bbkrzg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/wallets/id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"wallets",
+								"id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Wallet",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhMDkwYWY2My00N2VhLTQ3ZjQtYjM4MS1mNzMzOTI2MzQyNGYiLCJpYXQiOjE3NjMzMjYxNTQsImV4cCI6MTc2MzQxMjU1NH0.q5fjOVrf7eOKxs0H7yxenCZdirk3-9A7YEuH-bbkrzg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n    \"chain\" : \"ethereum\",\n    \"address\" : \"0x112c95734a8Ce864C43aa32b158731CD93f35CC2\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/wallets/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"wallets",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update wallet",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhMDkwYWY2My00N2VhLTQ3ZjQtYjM4MS1mNzMzOTI2MzQyNGYiLCJpYXQiOjE3NjMzMjYxNTQsImV4cCI6MTc2MzQxMjU1NH0.q5fjOVrf7eOKxs0H7yxenCZdirk3-9A7YEuH-bbkrzg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n    \"chain\" : \"bsc\",\n    \"address\" : \"0x7BC0C734b9EF7aB62643bf52DCb2CA14ECfcBACe\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/wallets/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"wallets",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "GET /wallets: Retrieve all wallets for the authenticated user.  \n  \nPOST /wallets: Create a new wallet for the authenticated user.  \n  \nGET /wallets/:id: Retrieve details of a specific wallet by id.  \n  \nPUT /wallets/:id: Update a wallet for the authenticated user.  \n  \nDELETE /wallets/:id: Delete a wallet by id."
+		}
+	]
+}

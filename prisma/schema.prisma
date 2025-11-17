@@ -1,0 +1,45 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  wallets   Wallet[]
+}
+
+model Wallet {
+  id        String   @id @default(uuid())
+  userId    String
+  tag       String?
+  chainId   String
+  address   String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user      User     @relation(fields: [userId], references: [id])
+  chain     Chain    @relation(fields: [chainId], references: [id])
+}
+
+model Chain {
+  id                  String    @id @default(uuid())
+  name                String
+  slug                String    @unique
+  chainId             Int?      //solo sirve para EVM, sino null
+  explorerUrl         String?
+  rpcUrl              String?
+  nativeCurrency      String?
+  isEVM               Boolean   @default(true)
+  updatedAt DateTime  @updatedAt
+  createdAt DateTime  @default(now())
+
+  wallets             Wallet[]
+}

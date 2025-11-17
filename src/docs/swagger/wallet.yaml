@@ -1,0 +1,109 @@
+paths:
+  /wallets:
+    get:
+      tags: [Wallets]
+      summary: Get all wallets for authenticated user
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: List of wallets
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Wallet"
+
+    post:
+      tags: [Wallets]
+      summary: Create a new wallet
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WalletInput"
+      responses:
+        "201":
+          description: Wallet created
+
+  /wallets/{id}:
+    get:
+      tags: [Wallets]
+      summary: Get a wallet by ID
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Wallet details
+
+    put:
+      tags: [Wallets]
+      summary: Update wallet
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WalletInput"
+      responses:
+        "200":
+          description: Wallet updated
+
+    delete:
+      tags: [Wallets]
+      summary: Delete wallet
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Wallet deleted
+
+components:
+  schemas:
+    WalletInput:
+      type: object
+      required: [chain, address]
+      properties:
+        tag:
+          type: string
+          nullable: true
+        chain:
+          type: string
+        address:
+          type: string
+
+    Wallet:
+      type: object
+      properties:
+        id:
+          type: string
+        tag:
+          type: string
+        chainId:
+          type: string
+        address:
+          type: string
