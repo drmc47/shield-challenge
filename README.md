@@ -1,97 +1,152 @@
-🚀 Challenge – Wallets API
+# 🚀 Wallets API – Technical Challenge
 
-API REST para autenticación y CRUD de wallets, construida con Node.js, Express, Prisma, PostgreSQL, Zod, y documentada con Swagger.
+A RESTful API for user authentication and wallet management, built with Node.js, Express, Prisma, PostgreSQL, JWT, Zod, and fully documented using Swagger (OpenAPI).
 
-🛠️ Tecnologías
+This project is part of a technical challenge and is prepared to run easily via Docker or locally.
+
+## 🛠️ Technologies Used
 
 Node.js + Express
+
+TypeScript
 
 Prisma ORM
 
 PostgreSQL
 
-Docker + docker-compose
+Docker + Docker Compose
 
-Zod (validación)
+JWT (JSON Web Token)
 
-JWT (autenticación)
+Zod for input validation
 
-Swagger (documentación)
+Swagger (OpenAPI) for API documentation
 
-📦 Instalación
-Clonar el repositorio
-git clone https://github.com/<tu-usuario>/<tu-repo>.git
-cd <tu-repo>
+Bcrypt for password hashing
 
-⚙️ Variables de entorno
+## 📦 Installation
+1. Clone the repository
+```
+git clone https://github.com/drmc47/shield-challenge.git
+```
 
-Crear un archivo .env basado en .env.example:
+## ⚙️ Environment Variables
 
+Create a .env file using .env.example as a reference:
+
+```
 DATABASE_URL="postgresql://user:password@localhost:5432/dbname?schema=public"
 JWT_SECRET="changeme123"
 PORT=3000
+```
 
-🐳 Correr con Docker (recomendado)
+🐳 Running with Docker (recommended)
+
+This project ships with a docker-compose.yml that starts the API and PostgreSQL together.
+
+```
 docker-compose up --build
+```
 
-La API estará en:
-📍 http://localhost:3000
+API available at:
+➡️ http://localhost:3000
 
-Swagger en:
-📍 http://localhost:3000/docs
+Swagger docs:
+➡️ http://localhost:3000/docs
 
-▶️ Correr localmente
-
-Instalar dependencias:
-
+▶️ Running Locally (without Docker)
+1. Install dependencies
 npm install
 
-Crear la DB:
+2. Start PostgreSQL
 
+You may use your own DB or start just the database container:
+```
 docker-compose up -d db
-
-Ejecutar migraciones:
-
+```
+3. Run Prisma migrations
+```
 npx prisma migrate dev
+```
+4. Start development server
 
-Levantar servidor:
-
+```
 npm run dev
+```
+5. Or run the compiled version
+```
+npm run build
+npm start
+```
+## 📚 API Documentation
 
-📚 Documentación
+Swagger UI is available at:
 
-Swagger disponible en:
-👉 http://localhost:3000/docs
+📍 http://localhost:3000/docs
 
-🔐 Endpoints principales
-Auth
+Documentation includes:
 
-POST /signin
+- Authentication endpoints
 
-POST /signout
+- Full Wallets CRUD
 
-Wallets
+- Required/optional fields
 
-GET /wallets
+- Schemas & examples
 
-POST /wallets
+- Authorization requirements
 
-GET /wallets/:id
+# 🔐 Main Endpoints
+## Authentication
 
-PUT /wallets/:id
+- POST	/signin	Sign in a user and return a JWT
+- POST	/signout	Sign out the user (requires JWT)
+## Wallets
 
-DELETE /wallets/:id
+- GET	/wallets	Retrieve all wallets for the user
+- POST	/wallets	Create a new wallet
+- GET	/wallets/:id	Retrieve a wallet by ID
+- PUT	/wallets/:id	Update a wallet
+- DELETE	/wallets/:id	Delete a wallet by ID
+## 📁 Project Structure
+```
+src/
+  modules/
+    auth/
+    wallets/
+  middlewares/
+  prisma/
+docs/
+  swagger/
+    auth.yaml
+    wallets.yaml
+docker-compose.yml
+package.json
+tsconfig.json
+README.md
+.env.example
+```
+## 🔧 Useful Scripts
+```
+npm run dev       # Run in development mode
+npm run build     # Compile TypeScript
+npm start         # Run compiled code
+npm run prisma    # Run Prisma commands
+```
+## 🧪 Postman Collection (optional)
 
-🔧 Scripts útiles
-npm run dev # modo desarrollo
-npm run build # compilar TypeScript
-npm start # correr versión compilada
-
-📁 Postman Collection
-
-Se incluye la colección en:
+A ready-to-use Postman collection is included:
+```
 docs/postman_collection.json
+```
 
-📝 Licencia
+Import it into Postman to test the API quickly.
 
-MIT
+## 👨‍💻 Author
+
+Developed by Daniel Mojica
+🔗 GitHub: https://github.com/drmc47
+
+## 📝 License
+
+MIT License.
